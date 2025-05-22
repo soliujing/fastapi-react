@@ -10,7 +10,7 @@
 			"command": "bash",
 			"args": [
 				"-c",
-				"npm install"
+				"[[ ! -d node_modules ]] && npm install || echo INFO-----------node_modules_already-exists-----------"
 			],
 			"problemMatcher": [],
 			"group": "build"
@@ -24,7 +24,7 @@
 			"command": "bash",
 			"args": [
 				"-c",
-				"[[ ! -d .venv ]] && uv venv .venv && uv sync || echo 'venv already exists'"
+				"[[ ! -d .venv ]] && uv venv .venv && uv sync && source .venv/bin/activate && ./scripts/prestart.sh || echo INFO-----------venv_already_exists-----------"
 			],
 			"problemMatcher": [],
 			"group": "build"
