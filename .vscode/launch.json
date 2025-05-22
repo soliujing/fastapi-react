@@ -12,7 +12,8 @@
             "runtimeArgs": ["run", "dev"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/frontend",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "preLaunchTask": "npm: install",
         },
         {
             "name": "Debug backend - Fastapi: debugpy",
@@ -22,7 +23,11 @@
             "args": ["app.main:app", "--reload"],
             "cwd": "${workspaceFolder}/backend",
             "jinja": true,
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "preLaunchTask": "uv: sync venv",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/backend"
+            }
         },
         {
             "type": "chrome",
