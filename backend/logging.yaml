@@ -1,0 +1,22 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  default:
+    format: "%(asctime)s | %(levelname)s | %(pathname)s:%(lineno)d | %(funcName)s | %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: default
+    level: INFO
+loggers:
+  uvicorn:
+    handlers: [console]
+    level: INFO
+    propagate: False
+  uvicorn.error:
+    level: INFO
+  uvicorn.access:
+    level: INFO
+root:
+  level: INFO
+  handlers: [console]

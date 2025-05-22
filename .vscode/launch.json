@@ -21,6 +21,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": ["app.main:app", "--reload"],
+            // "args": ["app.main:app", "--reload", "--log-config", "logging.yaml"],
             "cwd": "${workspaceFolder}/backend",
             "jinja": true,
             "envFile": "${workspaceFolder}/.env",
